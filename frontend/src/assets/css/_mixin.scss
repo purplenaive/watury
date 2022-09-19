@@ -1,0 +1,13 @@
+@mixin flex($inline: false, $direction: row, $wrap: nowrap, $justify: center, $align: center) {
+  display: if($inline, inline-flex, flex);
+  flex-flow: $direction $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@function vw($value, $standard: 360,) {
+  @return calc($value / ($standard * 0.01)) + vw;
+}
+@function vh($value, $standard: 640) {
+  @return calc($value / ($standard * 0.01)) + vh;
+}
