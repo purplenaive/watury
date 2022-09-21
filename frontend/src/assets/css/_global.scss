@@ -37,6 +37,7 @@ html, body {
 .nue--normal { box-shadow: -3px -3px 5px white, 2px 2px 5px rgba($navy, .5); }
 .nue--float { box-shadow: -6px -6px 8px white, 4px 4px 8px rgba($navy, .4); }
 .nue--inset { box-shadow: inset -3px -3px 5px white, inset 2px 2px 5px rgba($navy, .5); }
+.nue--navy--inset { box-shadow: inset -3px -3px 5px rgba(white, .4), inset 2px 2px 5px rgba(black, .5); }
 
 // ********** 공통 input ********** //
 .field__wrapper {
@@ -109,16 +110,21 @@ html, body {
   &:active {
     @extend .nue--inset;
   }
+
+  &.button--active {
+    color: white; 
+    background-color: $navy;
+
+    &:active {
+      @extend .nue--navy--inset;
+    }
+  }
+
   &:disabled,
   &.button--disabled {
     box-shadow: unset;
     color: $navy--opacity-05;
     background-color: rgba($navy, 0.1);
-  }
-
-  &.button--active {
-    color: white; 
-    background-color: $navy;
   }
 }
 
@@ -128,4 +134,35 @@ html, body {
   .form__actions {
     margin-top: 20px;
   }
+}
+
+// ********** Transition ********** //
+// fade
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s;
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+.v-enter-to,
+.v-leave {
+  opacity: 1;
+}
+// expand
+.expandMini-enter-active,
+.expandMini-leave-active {
+  transition: max-height 0.3s;
+}
+
+.expandMini-enter,
+.expandMini-leave-to {
+  max-height: 0;
+}
+
+.expandMini-enter-to,
+.expandMini-leave {
+  max-height: 100px;
 }

@@ -62,27 +62,43 @@
         id="sign-up-form"
       >
         <div class="form__content">
-          <input type="text" v-model="sign_up.name" class="form__field common-field name-field" placeholder="이름을 입력하세요">
-          <input type="text" v-model="sign_up.id" class="form__field common-field id-field" placeholder="아이디를 입력하세요">
+          <input type="text" 
+            v-model="sign_up.name" 
+            class="form__field common-field name-field" 
+            placeholder="이름을 입력하세요"
+            @change="signupValidation"
+          >
+          <input 
+            type="text" 
+            v-model="sign_up.id" 
+            class="form__field common-field id-field" 
+            placeholder="아이디를 입력하세요"
+            @change="signupValidation"
+          >
           <input 
             type="password" 
             v-model="sign_up.password"
             class="form__field common-field password-field" 
             placeholder="비밀번호를 입력하세요"
+            @change="signupValidation"
           >
           <input 
             type="password" 
             v-model="sign_up.confirm_password"
             class="form__field common-field confirm-password-field" 
             placeholder="비밀번호를 확인합니다"
+            @change="signupValidation"
           >
         </div>
         
         <div class="form__actions">
+          <toast-message :text="sign_up.error"></toast-message>
           <button 
-          type="submit" 
-          form="sign-up-form" 
-          class="common-button button--full button--active sign-up-button"
+            type="submit" 
+            form="sign-up-form" 
+            class="common-button button--full button--active sign-up-button"
+            :disabled="sign_up.error !== ''"
+            @click.prevent="signup"
           >회원가입</button>
         </div>
         <p class="guide-text text--green return-to-login" @click="mode = 'login'">로그인으로 돌아가기</p>
@@ -92,8 +108,13 @@
 </template>
 
 <script>
+  import toastMessage from '@/components/toastMessage.vue';
+
   export default {
     name: "loginPage",
+    components: {
+      toastMessage,
+    },
     data() {
       return {
         mode: "login",
@@ -109,16 +130,43 @@
           id: "",
           password: "",
           confirm_password: "",
+          error: "",
         },
       }
     },
     methods: {
+      // 회원가입 모드로 변경
       switchToSignup() {
         this.mode = "sign-up";
       },
+      // [공통] 비밀번호 필드 비밀번호 표시, 숨기기 버튼 토글
       changePasswordView(target) {
         return target === "password" ? "text" : "password";
-      }
+      },
+      // 회원가입 폼 validation
+      signupValidation() {
+        const sign = this.sign_up;
+
+        sign.error = "";
+
+        if(!sign.name) {
+          this.sign_up.error = "이름을 입력해주세요";
+          return;
+        } else if(!sign.id) {
+          sign.error = "아이디를 입력해주세요";
+          return;
+        } else if(!sign.password) {
+          sign.error = "비밀번호를 입력해주세요";
+          return;
+        } else if(sign.password !== sign.confirm_password) {
+          sign.error = "비밀번호가 일치하지 않습니다.<br>다시 확인해주세요."
+          return;
+        }
+      },
+      // 회원가입 버튼 누를 경우
+      signup() {
+        this.signupValidation();
+      },
     },
   }
 </script>
