@@ -13,9 +13,8 @@ html, body {
   min-height: 100%;
 }
 
-// ********** 공통 라운드 카드 ********** //
-.common-card {
-  border-radius: 12px;
+.page {
+  padding: 0 18px;
 }
 
 // ********** 공통 text style ********** //
@@ -38,6 +37,40 @@ html, body {
 .nue--float { box-shadow: -6px -6px 8px white, 4px 4px 8px rgba($navy, .4); }
 .nue--inset { box-shadow: inset -3px -3px 5px white, inset 2px 2px 5px rgba($navy, .5); }
 .nue--navy--inset { box-shadow: inset -3px -3px 5px rgba(white, .4), inset 2px 2px 5px rgba(black, .5); }
+
+
+// ********** 공통 라운드 카드 ********** //
+.common-card {
+  border-radius: 12px;
+}
+// ********** 공통 보드 ********** //
+.common-board {
+
+  &:not(.board--escape) {
+    @extend .common-card;
+    @extend .nue--normal;
+  }
+
+  background-color: $pale;
+
+  .board__title {
+    @include flex(false, row, nowrap, flex-start, center);
+
+    margin-bottom: 10px;
+    
+    .title__text {
+      line-height: 32px;
+      font-size: 18px;
+      font-weight: $font-b;
+    }
+    .title__action-button {
+      justify-self: flex-end;
+      margin-left: auto;
+      padding: 4px;
+      background-color: unset;
+    }
+  }
+}
 
 // ********** 공통 input ********** //
 .field__wrapper {
@@ -98,10 +131,14 @@ html, body {
   font-family: $ptd;
   font-size: 16px;
   color: $navy;
-  transition: all 0.3 ease;
+  transition: all 0.3s ease;
   
   &.button--full {
     width: 100%;
+  }
+  &.button--escape {
+    min-height: unset;
+    padding: 0;
   }
   
   &:hover {
@@ -133,6 +170,55 @@ html, body {
 
   .form__actions {
     margin-top: 20px;
+  }
+}
+
+// ********** 공통 달력 ********** //
+.common-calendar {
+  border: 0;
+  font-family: $ptd !important;
+  background-color: unset;
+
+  .vc-header {
+    margin-bottom: 12px;
+
+    .vc-title {
+      color: $navy;
+    }
+  }
+  .vc-arrows-container {
+    gap: 6px;
+    padding: 10px;
+
+    .vc-arrow {
+      @extend .common-button;
+
+      min-height: unset;
+      padding: 0;
+
+      &:hover {
+        background-color: $pale;
+      }
+    }
+    .vc-svg-icon {
+      transform: scale(0.8);
+    }
+  }
+  .vc-weekday {
+    color: $navy--opacity-05;
+  }
+  .vc-day-content {
+    color: $navy;
+
+    &:hover {
+      border-radius: 8px;
+      background-color: rgba($pale-green, .5);
+    }
+  }
+  // 날짜 터치시 하이라이트
+  // 이벤트 적용했을 경우 언더바
+  .vc-bars {
+    width: 50%;
   }
 }
 
