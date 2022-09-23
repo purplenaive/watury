@@ -1,15 +1,17 @@
 <template>
   <main-header v-if="$route.meta.headerActive"></main-header>
   <router-view :class="{'content--header-active': $route.meta.headerActive}"></router-view>
+  <fixed-menu></fixed-menu>
 </template>
 
 <script>
-  import mainHeader from "@/components/header.vue"
+  import mainHeader from "@/components/header.vue";
+  import fixedMenu from "@/components/fixedMenu.vue";
 
 export default {
   name: "App",
   components: {
-    mainHeader,
+    mainHeader, fixedMenu,
   }
 }
 </script>

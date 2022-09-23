@@ -39,6 +39,7 @@
       </h2>
       <div class="board__content">
         <plant-list :data="my_plant"></plant-list>
+        <button class="common-button button--full view-all-plants-button">전체보기</button>
       </div>
     </section>
   </main>

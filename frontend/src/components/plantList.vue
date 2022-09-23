@@ -45,19 +45,18 @@
 
   .plant__item {
     position: relative;
-    overflow: hidden;
 
     .plant__image-wrapper {
-      width: 100%;
+      @extend .nue--normal;
 
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      
       .plant__image {
-        @extend .nue--normal;
-        
         width: 100%;
         height: calc(25vw - (36px / 4) - (16px * 3 / 4));
-        border-radius: 24px;
-        overflow: hidden;
-        margin-bottom: 12px;
         background-color: $pale;
       }
       .plant-image {

@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@splidejs/vue-splide": "^0.6.11",
     "core-js": "^3.8.3",
     "sass": "^1.54.9",
+    "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
     "vuex": "^4.0.2"
