@@ -6,18 +6,18 @@ export default createRouter({
     {
       path: "/",
       name: "home",
-      component: () => import("../pages/home.vue"),
+      component: () => import("@/pages/homeView.vue"),
       meta: {
-        headerActive: true,
+        headerActive: false,
       },
     },
     {
       path: "/login",
       name: "login",
-      component: () => import("../pages/login.vue"),
+      component: () => import("@/pages/loginView.vue"),
       meta: {
         headerActive: false,
       },
-    }
+    },
   ]
 })

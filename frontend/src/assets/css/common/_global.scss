@@ -1,0 +1,172 @@
+#app {
+  min-height: 100%;
+}
+
+.page-view {
+  padding: 24px;
+}
+
+// ============ 공통 text style ============ //
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+.text--green { color: $primary-main; }
+.text--dark-green { color: $primary-dark; }
+
+// ============ component ============ //
+.component {
+
+  .component__title {
+    font-size: 20px;
+    font-weight: $font-md;
+    margin-bottom: 20px;
+  }
+}
+
+// ============ common label ============ //
+.common-label {
+  @include flex(false, row, nowrap, flex-start, center);
+
+  width: 100%;
+
+  // align vertical
+  &.label--align-vertical {
+    @include flex(false, column, nowrap, flex-start, center);
+
+    gap: 8px;
+
+    .label__text {
+      width: 100%;
+      text-align: left;
+      font-weight: $font-md;
+    }
+
+  }
+}
+
+// ============ common field ============ //
+.common-field {
+  height: 40px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: $ptd;
+  color: $secondary-main;
+  line-height: 1;
+  background-color: white;
+  
+  &::placeholder {
+    color: $secondary-60;
+  }
+
+  // field--box
+  &.field--box {
+    width: 100%;
+  }
+
+  // active
+  &:active {
+    outline: 0 !important;
+  }
+}
+
+// ============ common button ============ //
+.common-button {
+  display: inline-block;
+  height: 40px;
+  padding: 0 12px;
+  font-family: $ptd;
+  font-size: 16px;
+  color: $secondary-main;
+  font-family: $ptd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: $pale-dark;
+
+  // button--big
+  &.button--big {
+    height: 48px;
+  }
+  // button--box
+  &.button--box {
+    width: 100%;
+  }
+
+  // button--secondary
+  &.button--secondary {
+    color: $primary-dark;
+    font-weight: $font-md;
+    background-color: $primary-20;
+  }
+  // button--active
+  &.button--active {
+    font-weight: $font-md;
+    color: white;
+    background-color: $primary-main;
+  }
+}
+
+// ============ common form ============ //
+.common-form {
+
+  // actions
+  .form__actions {
+    @include flex(false, row, wrap, center, center);
+
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
+
+    .action-notice {
+      width: 100%;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+// common calendar
+.common-calendar {
+  border: 0 !important;
+}
+
+
+// ============ Transition ============ //
+// fade
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s;
+}
+
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+.v-enter-to,
+.v-leave {
+  opacity: 1;
+}
+// expand
+.expandMini-enter-active,
+.expandMini-leave-active {
+  transition: max-height 0.3s;
+}
+
+.expandMini-enter,
+.expandMini-leave-to {
+  max-height: 0;
+}
+
+.expandMini-enter-to,
+.expandMini-leave {
+  max-height: 100px;
+}

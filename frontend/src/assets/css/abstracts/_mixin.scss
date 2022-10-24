@@ -1,3 +1,4 @@
+// ========== flex ========== //
 @mixin flex($inline: false, $direction: row, $wrap: nowrap, $justify: center, $align: center) {
   display: if($inline, inline-flex, flex);
   flex-flow: $direction $wrap;
@@ -5,9 +6,16 @@
   align-items: $align;
 }
 
-@function vw($value, $standard: 360,) {
+// ========== icon ========== //
+@mixin icon-custom($size) {
+  width: $size + px;
+  height: $size + px;
+}
+
+// ========== vw, vh ========== //
+@function vw($value, $standard: 720) {
   @return calc($value / ($standard * 0.01)) + vw;
 }
-@function vh($value, $standard: 640) {
+@function vh($value, $standard: 1280) {
   @return calc($value / ($standard * 0.01)) + vh;
 }

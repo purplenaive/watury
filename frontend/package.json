@@ -10,7 +10,9 @@
   "dependencies": {
     "@splidejs/vue-splide": "^0.6.11",
     "core-js": "^3.8.3",
+    "dayjs": "^1.11.6",
     "sass": "^1.54.9",
+    "scrollbooster": "^3.0.2",
     "v-calendar": "^3.0.0-alpha.8",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
