@@ -104,9 +104,9 @@ import scrollBooster from "scrollbooster";
     flex: 0 0 auto;
     height: 32px;
     padding: 0 12px;
-    background-color: $primary-main;
     border-radius: 32px;
     overflow: hidden;
+    background-color: $primary-main;
 
     .plant__last-water-day {
       @include flex(false, row, nowrap, flex-start, center);

@@ -150,7 +150,7 @@
     min-height: 100vh;
 
     .view__inner {
-      width: vw(400);
+      width: vw(420);
     }
 
     .common-form {

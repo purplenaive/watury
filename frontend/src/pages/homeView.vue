@@ -1,5 +1,6 @@
 <template>
   <main class="page-view home-view">
+
     <section class="pale-section">
       <!-- ========== 상단 프로필 정보 ========== -->
       <simple-profile></simple-profile>
@@ -25,7 +26,14 @@
 
       <!-- ========== 이번 달, 물 준 날은? ========== -->
       <monthly-watering-calendar></monthly-watering-calendar>
+
+      <!-- ========== 내 식물들 ========== -->
+      <section class="component my-plant-list">
+        <h2 class="component__title">&#129716; 내 식물들</h2>
+        <plant-list></plant-list>
+      </section>
     </section>
+
   </main>
 </template>
 
@@ -35,10 +43,11 @@
   import simpleProfile from "@/components/simpleProfile.vue";
   import needWaterPlants from "@/components/needWaterPlants.vue";
   import monthlyWateringCalendar from "@/components/monthlyWateringCalendar.vue";
+  import plantList from "@/components/plantList.vue";
 
   export default {
     name: "mainView",
-    components: { simpleProfile, needWaterPlants, monthlyWateringCalendar },
+    components: { simpleProfile, needWaterPlants, monthlyWateringCalendar, plantList },
     setup() {
       const state = reactive({
         tools: [
@@ -108,6 +117,11 @@
       text-align: center;
       font-size: 14px;
     }
+  }
+  // ===== 내 식물들 ===== //
+  .my-plant-list {
+    width: 100%;
+
   }
 
 </style>

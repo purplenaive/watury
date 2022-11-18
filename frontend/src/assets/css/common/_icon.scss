@@ -30,8 +30,8 @@ $icon-list: null;
 
   @return map-get($icon-list, $name);
 }
-$white-list: (water-drop);
-$green-list: ();
+$white-list: (water-drop, home, calendar, add-plant, watering-can, profile);
+$green-list: (plant);
 $red-list: ();
 
 .icon {
@@ -76,7 +76,7 @@ $red-list: ();
           &.red { background-image: url(#{icon($key, $red)}); }
         }
         @if list.index($green-list, $key) {
-          &.green { background-image: url(#{icon($key, $primary-main)}); }
+          &.green { background-image: url(#{icon($key, $primary-dark)}); }
         }
       }
     }
